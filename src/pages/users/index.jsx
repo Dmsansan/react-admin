@@ -65,7 +65,7 @@ export default class UserCenter extends Component {
 
     handleSearch = (e) => {
         e && e.preventDefault();
-        /*
+        
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (err) return;
 
@@ -76,7 +76,7 @@ export default class UserCenter extends Component {
                 pageSize,
             };
 
-            this.props.ajax.get('/xxx', params)
+            this.props.ajax.get('http://localhost:8067/produce/queryProduceInfoById', params)
                 .then(res => {
                     const dataSource = res?.list || [];
                     const total = res?.total || 0;
@@ -85,21 +85,19 @@ export default class UserCenter extends Component {
                 });
         });
 
-        */
+        // const dataSource = Array.from({length: 20})
+        //     .map((item, index) => {
+        //         const n = index + 1;
+        //         return {
+        //             id: n,
+        //             name: n,
+        //             age: n,
+        //             job: n,
+        //             position: n,
+        //         };
+        //     });
 
-        const dataSource = Array.from({length: 20})
-            .map((item, index) => {
-                const n = index + 1;
-                return {
-                    id: n,
-                    name: n,
-                    age: n,
-                    job: n,
-                    position: n,
-                };
-            });
-
-        this.setState({dataSource});
+        // this.setState({dataSource});
     };
 
     render() {
