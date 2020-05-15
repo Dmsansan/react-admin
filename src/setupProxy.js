@@ -1,11 +1,11 @@
 const proxy = require('http-proxy-middleware');
 
 module.exports = function (app) {
-    app.use(proxy('/produce-api',
+    app.use(proxy('/api',
         {
-            target: 'http://localhost:8067/',
+            target: 'http://localhost:3000/',
             pathRewrite: {
-                '^/produce-api': '',
+                '^/api': '',
             },
             changeOrigin: true,
             secure: false, // 是否验证证书

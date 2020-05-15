@@ -12,6 +12,7 @@ import {
 } from "@/library/components";
 import config from '@/commons/config-hoc';
 import UserEditModal from './UserEditModal';
+import apiManager from '@/commons/apiManager';
 
 @config({
     path: '/users',
@@ -76,7 +77,7 @@ export default class UserCenter extends Component {
                 pageSize,
             };
 
-            this.props.ajax.get('http://localhost:8067/produce-api/produce/queryProduceInfoById', params)
+            this.props.ajax.get(apiManager.produceList, params)
                 .then(res => {
                     const dataSource = res?.list || [];
                     const total = res?.total || 0;
