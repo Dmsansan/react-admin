@@ -69,7 +69,7 @@ export default class UserCenter extends Component {
         
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (err) return;
-
+            
             const {pageNum, pageSize} = this.state;
             const params = {
                 ...values,
@@ -77,7 +77,7 @@ export default class UserCenter extends Component {
                 pageSize,
             };
 
-            this.props.ajax.get(apiManager.produceList, params)
+            this.props.ajax.post(apiManager.produceList, params)
                 .then(res => {
                     const dataSource = res?.list || [];
                     const total = res?.total || 0;
